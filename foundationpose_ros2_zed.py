@@ -1,6 +1,6 @@
 import sys
-sys.path.append('/home/rahul/Desktop/Robin/FoundationPoseROS2/FoundationPose')
-sys.path.append('/home/rahul/Desktop/Robin/FoundationPoseROS2/FoundationPose/nvdiffrast')
+sys.path.append('/home/ros/FoundationPose_ROS2_Zed/FoundationPose')
+sys.path.append('/home/ros/FoundationPose_ROS2_Zed/FoundationPose/nvdiffrast')
 
 
 
