@@ -31,7 +31,7 @@ cd ${PROJ_ROOT}/FoundationPose && wget https://gitlab.com/libeigen/eigen/-/archi
 
 # Clone and install nvdiffrast
 cd ${PROJ_ROOT}/FoundationPose && git clone https://github.com/NVlabs/nvdiffrast && \
-    cd /nvdiffrast && pip install .
+    cd nvdiffrast && pip install .
 
 # Install mycpp
 cd ${PROJ_ROOT}/FoundationPose/mycpp/ && \
