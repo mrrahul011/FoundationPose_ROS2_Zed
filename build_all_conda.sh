@@ -4,7 +4,7 @@ PROJ_ROOT=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
 
 # Install dependencies
 pip install torchvision==0.16.0+cu121 torchaudio==2.1.0 torch==2.1.0+cu121 --index-url https://download.pytorch.org/whl/cu121
-pip install "git+https://github.com/facebookresearch/pytorch3d.git@stable"
+pip install --no-build-isolation "git+https://github.com/facebookresearch/pytorch3d.git@stable"
 python -m pip install -r requirements.txt
 
 # Clone source repository of FoundationPose
@@ -30,8 +30,10 @@ cd ${PROJ_ROOT}/FoundationPose && wget https://gitlab.com/libeigen/eigen/-/archi
     sudo make install
 
 # Clone and install nvdiffrast
-cd ${PROJ_ROOT}/FoundationPose && git clone https://github.com/NVlabs/nvdiffrast && \
-    cd nvdiffrast && pip install .
+cd ${PROJ_ROOT}/FoundationPose && git clone https://github.com/NVlabs/nvdiffrast && 
+    #cd nvdiffrast && pip install .
+    cd nvdiffrast && pip install -e . --no-build-isolation && pip install ruamel.yaml
+
 
 # Install mycpp
 cd ${PROJ_ROOT}/FoundationPose/mycpp/ && \
@@ -42,6 +44,7 @@ sudo make -j$(nproc)
 # Install mycuda
 cd ${PROJ_ROOT}/FoundationPose/bundlesdf/mycuda && \
 rm -rf build *egg* *.so && \
-python3 -m pip install -e .
+python -m pip install -e . --no-build-isolation
+# python3 -m pip install -e .
 
 cd ${PROJ_ROOT}
